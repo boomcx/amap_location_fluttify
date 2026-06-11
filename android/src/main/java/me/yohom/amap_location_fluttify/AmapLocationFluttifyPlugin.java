@@ -21,7 +21,6 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 import io.flutter.plugin.common.StandardMethodCodec;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 
@@ -37,35 +36,9 @@ public class AmapLocationFluttifyPlugin implements FlutterPlugin, MethodChannel.
 
     private static List<Map<String, Handler>> handlerMapList;
 
-    // v1 android embedding for compatible
-    public static void registerWith(Registrar registrar) {
-        final MethodChannel channel = new MethodChannel(registrar.messenger(), "me.yohom/amap_location_fluttify", new StandardMethodCodec(new FluttifyMessageCodec()));
-
-        AmapLocationFluttifyPlugin plugin = new AmapLocationFluttifyPlugin();
-
-        BinaryMessenger messenger = registrar.messenger();
-        PlatformViewRegistry platformViewRegistry = registrar.platformViewRegistry();
-        Activity activity = registrar.activity();
-
-        plugin.messenger = messenger;
-        plugin.platformViewRegistry = platformViewRegistry;
-
-        handlerMapList = new ArrayList<>();
-        handlerMapList.add(SubHandler0.getSubHandler(messenger));
-        handlerMapList.add(SubHandler1.getSubHandler(messenger));
-        handlerMapList.add(SubHandler2.getSubHandler(messenger));
-        handlerMapList.add(SubHandlerCustom.instance.getSubHandler(messenger, registrar.activity()));
-
-        channel.setMethodCallHandler(plugin);
-
-        // register platform view
-        
-    }
-
     private BinaryMessenger messenger;
     private PlatformViewRegistry platformViewRegistry;
 
-    // v2 android embedding
     @Override
     public void onAttachedToEngine(FlutterPluginBinding binding) {
         if (getEnableLog()) {
@@ -101,8 +74,6 @@ public class AmapLocationFluttifyPlugin implements FlutterPlugin, MethodChannel.
 
         handlerMapList.add(SubHandlerCustom.instance.getSubHandler(messenger, activity));
 
-        // register platform view
-        
     }
 
     @Override

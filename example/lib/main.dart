@@ -8,17 +8,19 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await AmapLocation.instance.init(iosKey: 'f6422eadda731fb0d9ffb3260a5cf899');
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  Location _location;
-  String _fenceStatus;
+  Location? _location;
+  String? _fenceStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,8 @@ class _MyAppState extends State<MyApp> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
-              child: Text('获取单次定位'),
+            ElevatedButton(
+              child: const Text('获取单次定位'),
               onPressed: () async {
                 if (await requestPermission()) {
                   final location = await AmapLocation.instance.fetchLocation();
@@ -39,8 +41,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('获取连续定位'),
+            ElevatedButton(
+              child: const Text('获取连续定位'),
               onPressed: () async {
                 if (await requestPermission()) {
                   await AmapLocation.instance.enableBackgroundLocation(
@@ -58,8 +60,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('停止定位'),
+            ElevatedButton(
+              child: const Text('停止定位'),
               onPressed: () async {
                 if (await requestPermission()) {
                   await AmapLocation.instance.stopLocation();
@@ -67,8 +69,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('添加圆形围栏'),
+            ElevatedButton(
+              child: const Text('添加圆形围栏'),
               onPressed: () async {
                 if (await requestPermission()) {
                   AmapLocation.instance
@@ -86,8 +88,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('添加多边形围栏'),
+            ElevatedButton(
+              child: const Text('添加多边形围栏'),
               onPressed: () async {
                 if (await requestPermission()) {
                   AmapLocation.instance.addPolygonGeoFence(
@@ -107,8 +109,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('添加poi围栏'),
+            ElevatedButton(
+              child: const Text('添加poi围栏'),
               onPressed: () async {
                 if (await requestPermission()) {
                   AmapLocation.instance
@@ -127,8 +129,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('添加行政区划围栏'),
+            ElevatedButton(
+              child: const Text('添加行政区划围栏'),
               onPressed: () async {
                 if (await requestPermission()) {
                   AmapLocation.instance
@@ -142,8 +144,8 @@ class _MyAppState extends State<MyApp> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text('释放资源'),
+            ElevatedButton(
+              child: const Text('释放资源'),
               onPressed: () {
                 AmapLocation.instance.dispose();
               },

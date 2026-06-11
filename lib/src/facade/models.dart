@@ -4,74 +4,57 @@ import 'package:amap_location_fluttify/src/android/android.export.g.dart';
 import 'package:amap_location_fluttify/src/ios/ios.export.g.dart';
 import 'package:flutter/cupertino.dart';
 
-/// 定位结果 model
 class Location {
   Location({
-    @required this.address,
-    @required this.latLng,
-    @required this.altitude,
-    @required this.bearing,
-    @required this.country,
-    @required this.province,
-    @required this.city,
-    @required this.cityCode,
-    @required this.adCode,
-    @required this.district,
-    @required this.poiName,
-    @required this.street,
-    @required this.streetNumber,
-    @required this.aoiName,
-    @required this.accuracy,
-    @required this.speed,
+    required this.address,
+    required this.latLng,
+    required this.altitude,
+    required this.bearing,
+    required this.country,
+    required this.province,
+    required this.city,
+    required this.cityCode,
+    required this.adCode,
+    required this.district,
+    required this.poiName,
+    required this.street,
+    required this.streetNumber,
+    required this.aoiName,
+    required this.accuracy,
+    required this.speed,
   });
 
-  /// 地址全称
-  String address;
+  String? address;
 
-  /// 经纬度
   LatLng latLng;
 
-  /// 海拔
-  double altitude;
+  double? altitude;
 
-  /// 设备朝向/移动方向
-  double bearing;
+  double? bearing;
 
-  /// 国家
-  String country;
+  String? country;
 
-  /// 省份
-  String province;
+  String? province;
 
-  /// 城市
-  String city;
+  String? city;
 
-  /// 城市编号
-  String cityCode;
+  String? cityCode;
 
-  /// 邮编
-  String adCode;
+  String? adCode;
 
-  /// 区域
-  String district;
+  String? district;
 
-  /// poi名称
-  String poiName;
+  String? poiName;
 
-  /// 街道
-  String street;
+  String? street;
 
-  /// 街道号
-  String streetNumber;
+  String? streetNumber;
 
-  /// aoi名称
-  String aoiName;
+  String? aoiName;
 
-  /// 精度
-  double accuracy;
+  double? accuracy;
 
-  /// 速度
-  double speed;
+  double? speed;
 
   @override
   String toString() {
@@ -79,38 +62,37 @@ class Location {
   }
 }
 
-/// 后台定位notification
 class BackgroundNotification {
   BackgroundNotification({
-    @required this.contentTitle,
-    @required this.contentText,
+    required this.contentTitle,
+    required this.contentText,
     this.when,
-    @required this.channelId,
-    @required this.channelName,
+    required this.channelId,
+    required this.channelName,
     this.enableLights = true,
     this.showBadge = true,
   });
 
   String contentTitle;
   String contentText;
-  int when;
+  int? when;
   String channelId;
   String channelName;
-  bool enableLights;
-  bool showBadge;
+  bool? enableLights;
+  bool? showBadge;
 }
 
 class GeoFenceEvent {
-  final String customId;
-  final String fenceId;
+  final String? customId;
+  final String? fenceId;
   final GeoFenceStatus status;
   final GeoFence genFence;
 
   GeoFenceEvent({
     this.customId,
     this.fenceId,
-    this.status,
-    this.genFence,
+    required this.status,
+    required this.genFence,
   });
 
   @override
@@ -120,17 +102,17 @@ class GeoFenceEvent {
 }
 
 class GeoFence {
-  final com_amap_api_fence_GeoFence androidModel;
-  final AMapGeoFenceRegion iosModel;
+  final com_amap_api_fence_GeoFence? androidModel;
+  final AMapGeoFenceRegion? iosModel;
 
-  GeoFence.android(this.androidModel) : this.iosModel = null;
+  GeoFence.android(this.androidModel) : iosModel = null;
 
-  GeoFence.ios(this.iosModel) : this.androidModel = null;
+  GeoFence.ios(this.iosModel) : androidModel = null;
 
-  Future<String> get customId async {
+  Future<String?> get customId async {
     return platform(
-      android: (pool) => androidModel.getCustomId(),
-      ios: (pool) => iosModel.get_customID(),
+      android: (pool) => androidModel!.getCustomId(),
+      ios: (pool) => iosModel!.get_customID(),
     );
   }
 }

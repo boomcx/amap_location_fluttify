@@ -8,7 +8,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -38,8 +37,8 @@ public class SubHandlerCustom {
     private SubHandlerCustom() { }
 
     public Map<String, Handler> getSubHandler(BinaryMessenger messenger, android.app.Activity activity) {
-        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        filter.addAction(GEOFENCE_BROADCAST_ACTION);
+        Context applicationContext = activity.getApplicationContext();
+        IntentFilter filter = new IntentFilter(GEOFENCE_BROADCAST_ACTION);
 
         final BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
@@ -68,7 +67,7 @@ public class SubHandlerCustom {
             }
         };
 
-        activity.registerReceiver(receiver, filter);
+        activity.registerReceiver(receiver, filter, Context.RECEIVER_EXPORTED);
 
         return new HashMap<String, Handler>() {{
             put("com.amap.api.fence.GeoFenceClient::addCircleGeoFenceX", (rawArgs, methodResult) -> {

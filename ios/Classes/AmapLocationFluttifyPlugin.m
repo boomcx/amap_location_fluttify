@@ -9,11 +9,8 @@
 #import "SubHandler/Custom/SubHandlerCustom.h"
 #import "FluttifyMessageCodec.h"
 
-// Dart端一次方法调用所存在的栈, 只有当MethodChannel传递参数受限时, 再启用这个容器
 extern NSMutableDictionary<NSString*, NSObject*>* STACK;
-// Dart端随机存取对象的容器
 extern NSMutableDictionary<NSNumber*, NSObject*>* HEAP;
-// 日志打印开关
 extern BOOL enableLog;
 
 @implementation AmapLocationFluttifyPlugin {
@@ -24,7 +21,6 @@ extern BOOL enableLog;
   self = [super init];
   if (self) {
     _registrar = registrar;
-    // 处理方法们
     _handlerMap = @{}.mutableCopy;
 
     [_handlerMap addEntriesFromDictionary: [self getSubHandler0]];
@@ -44,11 +40,8 @@ extern BOOL enableLog;
   [registrar addMethodCallDelegate:[[AmapLocationFluttifyPlugin alloc] initWithFlutterPluginRegistrar:registrar]
                            channel:channel];
 
-  // 注册View
-  
 }
 
-// Method Handlers
 - (void)handleMethodCall:(FlutterMethodCall *)methodCall result:(FlutterResult)methodResult {
   if (_handlerMap[methodCall.method] != nil) {
     _handlerMap[methodCall.method](_registrar, [methodCall arguments], methodResult);
@@ -57,22 +50,17 @@ extern BOOL enableLog;
   }
 }
 
-// 委托方法们
 - (void)amapGeoFenceManager : (AMapGeoFenceManager*)manager doRequireLocationAuth: (CLLocationManager*)locationManager
 {
   FlutterMethodChannel *channel = [FlutterMethodChannel
         methodChannelWithName:@"AMapGeoFenceManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapGeoFenceManagerDelegate::amapGeoFenceManager_doRequireLocationAuth");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapGeoFenceManager* argmanager = manager;
-  // ref callback arg
   CLLocationManager* arglocationManager = locationManager;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -87,19 +75,13 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapGeoFenceManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapGeoFenceManagerDelegate::amapGeoFenceManager_didAddRegionForMonitoringFinished_customID_error");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapGeoFenceManager* argmanager = manager;
-  // ref callback arg
   NSArray<AMapGeoFenceRegion*>* argregions = regions;
-  // ref callback arg
   NSString* argcustomID = customID;
-  // ref callback arg
   NSError* argerror = error;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -114,19 +96,13 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapGeoFenceManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapGeoFenceManagerDelegate::amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapGeoFenceManager* argmanager = manager;
-  // ref callback arg
   AMapGeoFenceRegion* argregion = region;
-  // ref callback arg
   NSString* argcustomID = customID;
-  // ref callback arg
   NSError* argerror = error;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -141,15 +117,11 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManager_doRequireLocationAuth");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
-  // ref callback arg
   CLLocationManager* arglocationManager = locationManager;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -164,15 +136,11 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManager_didFailWithError");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
-  // ref callback arg
   NSError* argerror = error;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -187,15 +155,11 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManager_didUpdateLocation");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
-  // ref callback arg
   CLLocation* arglocation = location;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -210,17 +174,12 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManager_didUpdateLocation_reGeocode");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
-  // ref callback arg
   CLLocation* arglocation = location;
-  // ref callback arg
   AMapLocationReGeocode* argreGeocode = reGeocode;
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -235,15 +194,11 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManager_didChangeAuthorizationStatus");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
-  // enum callback arg
   NSNumber* argstatus = @((NSInteger) status);
 
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -258,28 +213,19 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManagerShouldDisplayHeadingCalibration");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
 
   dispatch_async(dispatch_get_main_queue(), ^{
     [channel invokeMethod:@"Callback::AMapLocationManagerDelegate::amapLocationManagerShouldDisplayHeadingCalibration"
                 arguments:@{@"manager": argmanager == nil ? [NSNull null] : argmanager}
-                   result:^(id result) {}]; // 由于结果是异步返回, 这里用不上, 所以就不生成代码了
+                   result:^(id result) {}];
   });
   
-  // 由于flutter无法同步调用method channel, 所以暂不支持有返回值的回调方法
-  // 相关issue https://github.com/flutter/flutter/issues/28310
   NSLog(@"暂不支持有返回值的回调方法");
-  
-  ////////////////////////////如果需要手写代码, 请写在这里/////////////////////////////
-  
-  ////////////////////////////////////////////////////////////////////////////////
   
   return NO;
 }
@@ -290,15 +236,11 @@ extern BOOL enableLog;
         methodChannelWithName:@"AMapLocationManagerDelegate::Callback"
               binaryMessenger:[_registrar messenger]
                         codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
-  // print log
   if (enableLog) {
     NSLog(@"AMapLocationManagerDelegate::amapLocationManager_didUpdateHeading");
   }
 
-  // convert to jsonable arg
-  // ref callback arg
   AMapLocationManager* argmanager = manager;
-  // ref callback arg
   CLHeading* argnewHeading = newHeading;
 
   dispatch_async(dispatch_get_main_queue(), ^{

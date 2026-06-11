@@ -13,32 +13,22 @@ A new flutter plugin project.
   s.author           = { 'yohom' => 'yohombao@qq.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
-  s.public_header_files = ['Classes/**/*.h', 'Vendors/*.h'] # 只接收顶层的.h文件, 防止framework下面的.h文件被包含
+  s.public_header_files = ['Classes/**/*.h', 'Vendors/*.h']
   s.dependency 'Flutter'
   s.dependency 'foundation_fluttify'
-  # flutter plugin dependency
   s.dependency 'amap_core_fluttify'
-  # sdk dependency
-  s.dependency 'AMapLocation-NO-IDFA', '2.6.5'
+  s.dependency 'AMapLocation-NO-IDFA', '~> 2.9.0'
 
   s.static_framework = true
-  s.ios.deployment_target = '8.0'
-  # include project framework
+  s.ios.deployment_target = '13.0'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.vendored_frameworks = 'Vendors/*.framework'
-  # include project .a
   s.vendored_libraries = 'Vendors/*.a'
-  # ios system framework
   s.frameworks = [
         
   ]
-  # ios system library
   s.libraries = [
         
   ]
-  # resources
   s.resources = 'Vendors/**/*.bundle'
-  # s.resource_bundles = {
-  #   'amap_location_fluttify' => ['Vendors/*.framework/*.bundle']
-  # }
 end
-
