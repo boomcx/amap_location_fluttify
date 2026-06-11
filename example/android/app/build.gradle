@@ -55,9 +55,9 @@ android {
     signingConfigs {
         release {
             keyAlias 'amap_location_test'
-            keyPassword 'amap_location_test'
-            storeFile file('../amap_location_test.jks')
-            storePassword 'amap_location_test'
+            keyPassword '123123'
+            storeFile file('../release.jks')
+            storePassword '123123'
         }
     }
 
