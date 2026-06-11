@@ -6,6 +6,7 @@ import 'package:permission_handler/permission_handler.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await AmapLocation.instance.updatePrivacyShow(isShow: true, isAgree: true);
   await AmapLocation.instance.init(iosKey: 'f6422eadda731fb0d9ffb3260a5cf899');
   runApp(const MyApp());
 }

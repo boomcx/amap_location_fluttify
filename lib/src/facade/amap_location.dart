@@ -23,6 +23,28 @@ class AmapLocation with _Holder, _Community, _Pro {
 }
 
 mixin _Community on _Holder {
+  Future<void> updatePrivacyShow({bool isShow = true, bool isAgree = true}) {
+    return platform(
+      android: (pool) async {
+        final context = await android_app_Application.get();
+        await kAmapLocationFluttifyChannel.invokeMethod(
+          'com.amap.api.location.AMapLocationClient::updatePrivacyShow',
+          {'var0': context, 'var1': isShow, 'var2': isAgree},
+        );
+        await kAmapLocationFluttifyChannel.invokeMethod(
+          'com.amap.api.location.AMapLocationClient::updatePrivacyAgree',
+          {'var0': context, 'var1': isAgree},
+        );
+      },
+      ios: (pool) async {
+        await kAmapLocationFluttifyChannel.invokeMethod(
+          'AMapLocationManager::updatePrivacyShow_agree_isDid',
+          {'isShow': isShow, 'isAgree': isAgree, 'isDid': true},
+        );
+      },
+    );
+  }
+
   Future<void> init({required String iosKey}) {
     return platform(
       android: (pool) async {

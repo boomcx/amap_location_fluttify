@@ -80,6 +80,12 @@ public class SubHandlerCustom {
                 Double radius = (Double) args.get("radius");
                 String customId = (String) args.get("customId");
 
+                if (__this__ == null) {
+                    Log.e("SubHandlerCustom", "addCircleGeoFenceX: __this__ is null! args keys: " + args.keySet() + ", HEAP size: " + getHEAP().size());
+                    methodResult.error("GeoFenceClient is null", "__this__ is null, HEAP size: " + getHEAP().size(), null);
+                    return;
+                }
+
                 // invoke native method
                 try {
                     __this__.setActivateAction(activeAction);
@@ -108,6 +114,12 @@ public class SubHandlerCustom {
                 int size = (int) args.get("size");
                 String customId = (String) args.get("customId");
 
+                if (__this__ == null) {
+                    Log.e("SubHandlerCustom", "addPoiGeoFenceX: __this__ is null! args keys: " + args.keySet() + ", HEAP size: " + getHEAP().size());
+                    methodResult.error("GeoFenceClient is null", "__this__ is null, HEAP size: " + getHEAP().size(), null);
+                    return;
+                }
+
                 // invoke native method
                 try {
                     __this__.setActivateAction(activeAction);
@@ -134,6 +146,12 @@ public class SubHandlerCustom {
 
                 String customId = (String) args.get("customId");
 
+                if (__this__ == null) {
+                    Log.e("SubHandlerCustom", "addPolygonGeoFenceX: __this__ is null! args keys: " + args.keySet() + ", HEAP size: " + getHEAP().size());
+                    methodResult.error("GeoFenceClient is null", "__this__ is null, HEAP size: " + getHEAP().size(), null);
+                    return;
+                }
+
                 // invoke native method
                 try {
                     __this__.setActivateAction(activeAction);
@@ -158,6 +176,12 @@ public class SubHandlerCustom {
                 int activeAction = (int) args.get("activeAction");
                 String keyword = (String) args.get("keyword");
                 String customId = (String) args.get("customId");
+
+                if (__this__ == null) {
+                    Log.e("SubHandlerCustom", "addDistrictGeoFenceX: __this__ is null! args keys: " + args.keySet() + ", HEAP size: " + getHEAP().size());
+                    methodResult.error("GeoFenceClient is null", "__this__ is null, HEAP size: " + getHEAP().size(), null);
+                    return;
+                }
 
                 // invoke native method
                 try {

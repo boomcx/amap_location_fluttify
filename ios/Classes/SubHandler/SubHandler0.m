@@ -5160,6 +5160,24 @@ extern BOOL enableLog;
             methodResult(@"success");
         },
         
+        @"AMapLocationManager::updatePrivacyShow_agree_isDid": ^(NSObject <FlutterPluginRegistrar> * registrar, id args, FlutterResult methodResult) {
+            if (enableLog) {
+                NSLog(@"fluttify-objc: AMapLocationManager::updatePrivacyShow_agree_isDid(%@)", args);
+            }
+
+            // jsonable arg
+            BOOL isShow = [args[@"isShow"] boolValue];
+            // jsonable arg
+            BOOL isAgree = [args[@"isAgree"] boolValue];
+            // jsonable arg
+            BOOL isDid = [args[@"isDid"] boolValue];
+
+            // invoke native method
+            [AMapLocationManager updatePrivacyShow:isShow agree:isAgree isDid:isDid];
+
+            methodResult(@"success");
+        },
+
     };
 }
 
