@@ -27,13 +27,13 @@ mixin AMapGeoFenceManagerDelegate on NSObject {
   
 
   @mustCallSuper
-  Future<void> amapGeoFenceManager_doRequireLocationAuth(AMapGeoFenceManager manager, CLLocationManager locationManager) {}
+  Future<void> amapGeoFenceManager_doRequireLocationAuth(AMapGeoFenceManager manager, CLLocationManager locationManager) async {}
   
   @mustCallSuper
-  Future<void> amapGeoFenceManager_didAddRegionForMonitoringFinished_customID_error(AMapGeoFenceManager manager, List<AMapGeoFenceRegion> regions, String customID, NSError error) {}
+  Future<void> amapGeoFenceManager_didAddRegionForMonitoringFinished_customID_error(AMapGeoFenceManager manager, List<AMapGeoFenceRegion> regions, String customID, NSError? error) async {}
   
   @mustCallSuper
-  Future<void> amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(AMapGeoFenceManager manager, AMapGeoFenceRegion region, String customID, NSError error) {}
+  Future<void> amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(AMapGeoFenceManager manager, AMapGeoFenceRegion region, String customID, NSError? error) async {}
   
 }
 

@@ -18,7 +18,6 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 import io.flutter.plugin.common.StandardMethodCodec;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 
@@ -1570,7 +1569,7 @@ public class SubHandler1 {
                     // invoke native method
                     Void __result__ = null;
                     try {
-                        __this__.startAssistantLocation();
+                        __this__.startAssistantLocation(null);
                     } catch (Throwable throwable) {
                         throwable.printStackTrace();
                         if (getEnableLog()) {
@@ -1856,7 +1855,7 @@ public class SubHandler1 {
                     // invoke native method
                     Void __result__ = null;
                     try {
-                        __this__.onCreate(var1);
+                        __this__.onCreate();
                     } catch (Throwable throwable) {
                         throwable.printStackTrace();
                         if (getEnableLog()) {

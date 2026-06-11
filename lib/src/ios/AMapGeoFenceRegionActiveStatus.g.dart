@@ -24,8 +24,8 @@ extension AMapGeoFenceRegionActiveStatusFromX on int {
   AMapGeoFenceRegionActiveStatus toAMapGeoFenceRegionActiveStatus() {
     switch (this) {
       case 0: return AMapGeoFenceRegionActiveStatus.AMapGeoFenceRegionActiveUNMonitor;
-      case 1<<0: return AMapGeoFenceRegionActiveStatus.AMapGeoFenceRegionActiveMonitoring;
-      case 1<<1: return AMapGeoFenceRegionActiveStatus.AMapGeoFenceRegionActivePaused;
+      case == 1<<0: return AMapGeoFenceRegionActiveStatus.AMapGeoFenceRegionActiveMonitoring;
+      case == 1<<1: return AMapGeoFenceRegionActiveStatus.AMapGeoFenceRegionActivePaused;
       default: return AMapGeoFenceRegionActiveStatus.values[this + 0];
     }
   }

@@ -46,8 +46,10 @@ mixin _Community on _Holder {
     final completer = Completer<Location>();
     return platform(
       android: (pool) async {
-        assert(_androidClient != null,
-            '请先在main方法中调用AmapLocation.instance.init()进行初始化!');
+        assert(
+          _androidClient != null,
+          '请先在main方法中调用AmapLocation.instance.init()进行初始化!',
+        );
         if (_androidLocationDelegate == null) {
           _androidLocationDelegate = _AndroidLocationDelegate();
           await _androidClient!.setLocationListener(_androidLocationDelegate);
@@ -55,58 +57,61 @@ mixin _Community on _Holder {
 
         _androidLocationDelegate!._onLocationChanged = (location) async {
           if (!completer.isCompleted) {
-            completer.complete(Location(
-              address: await location.getAddress(),
-              latLng: LatLng(
-                await location.getLatitude(),
-                await location.getLongitude(),
+            completer.complete(
+              Location(
+                address: await location.getAddress(),
+                latLng: LatLng(
+                  await location.getLatitude(),
+                  await location.getLongitude(),
+                ),
+                altitude: await location.getAltitude(),
+                bearing: await location.getBearing(),
+                country: await location.getCountry(),
+                province: await location.getProvince(),
+                city: await location.getCity(),
+                cityCode: await location.getCityCode(),
+                adCode: await location.getAdCode(),
+                district: await location.getDistrict(),
+                poiName: await location.getPoiName(),
+                street: await location.getStreet(),
+                streetNumber: await location.getStreetNum(),
+                aoiName: await location.getAoiName(),
+                accuracy: await location.getAccuracy(),
+                speed: await location.speed,
               ),
-              altitude: await location.getAltitude(),
-              bearing: await location.getBearing(),
-              country: await location.getCountry(),
-              province: await location.getProvince(),
-              city: await location.getCity(),
-              cityCode: await location.getCityCode(),
-              adCode: await location.getAdCode(),
-              district: await location.getDistrict(),
-              poiName: await location.getPoiName(),
-              street: await location.getStreet(),
-              streetNumber: await location.getStreetNum(),
-              aoiName: await location.getAoiName(),
-              accuracy: await location.getAccuracy(),
-              speed: await location.speed,
-            ));
+            );
           }
         };
 
-        final options =
-            await com_amap_api_location_AMapLocationClientOption.create__();
-        await options.setOnceLocation(true);
-        if (mode != null) {
-          switch (mode) {
-            case LocationAccuracy.High:
-              await options.setLocationMode(
-                  com_amap_api_location_AMapLocationClientOption_AMapLocationMode
-                      .Hight_Accuracy);
-              break;
-            case LocationAccuracy.Low:
-              await options.setLocationMode(
-                  com_amap_api_location_AMapLocationClientOption_AMapLocationMode
-                      .Battery_Saving);
-              break;
-            case LocationAccuracy.DeviceSensor:
-              await options.setLocationMode(
-                  com_amap_api_location_AMapLocationClientOption_AMapLocationMode
-                      .Device_Sensors);
-              break;
-          }
+        final options = await com_amap_api_location_AMapLocationClientOption
+            .create__();
+        await options?.setOnceLocation(true);
+        switch (mode) {
+          case LocationAccuracy.High:
+            await options?.setLocationMode(
+              com_amap_api_location_AMapLocationClientOption_AMapLocationMode
+                  .Hight_Accuracy,
+            );
+            break;
+          case LocationAccuracy.Low:
+            await options?.setLocationMode(
+              com_amap_api_location_AMapLocationClientOption_AMapLocationMode
+                  .Battery_Saving,
+            );
+            break;
+          case LocationAccuracy.DeviceSensor:
+            await options?.setLocationMode(
+              com_amap_api_location_AMapLocationClientOption_AMapLocationMode
+                  .Device_Sensors,
+            );
+            break;
         }
-        if (needAddress != null) await options.setNeedAddress(needAddress);
+        if (needAddress != null) await options?.setNeedAddress(needAddress);
         if (timeout != null) {
-          await options.setHttpTimeOut(timeout.inMilliseconds);
+          await options?.setHttpTimeOut(timeout.inMilliseconds);
         }
 
-        await options.setSensorEnable(true);
+        await options?.setSensorEnable(true);
 
         await _androidClient!.setLocationOption(options);
 
@@ -115,18 +120,18 @@ mixin _Community on _Holder {
         return completer.future;
       },
       ios: (pool) async {
-        assert(_iosClient != null,
-            '请先在main方法中调用AmapLocation.instance.init()进行初始化!');
-        if (mode != null) {
-          switch (mode) {
-            case LocationAccuracy.High:
-              await _iosClient!.set_desiredAccuracy(10);
-              break;
-            case LocationAccuracy.DeviceSensor:
-            case LocationAccuracy.Low:
-              await _iosClient!.set_desiredAccuracy(100);
-              break;
-          }
+        assert(
+          _iosClient != null,
+          '请先在main方法中调用AmapLocation.instance.init()进行初始化!',
+        );
+        switch (mode) {
+          case LocationAccuracy.High:
+            await _iosClient!.set_desiredAccuracy(10);
+            break;
+          case LocationAccuracy.DeviceSensor:
+          case LocationAccuracy.Low:
+            await _iosClient!.set_desiredAccuracy(100);
+            break;
         }
         if (timeout != null) {
           await _iosClient!.set_locationTimeout(timeout.inSeconds);
@@ -136,27 +141,29 @@ mixin _Community on _Holder {
           needAddress ?? true,
           (location, regeocode, error) async {
             if (!completer.isCompleted) {
-              completer.complete(Location(
-                address: await regeocode?.get_formattedAddress(),
-                latLng: LatLng(
-                  await location.coordinate.then((it) => it.latitude),
-                  await location.coordinate.then((it) => it.longitude),
+              completer.complete(
+                Location(
+                  address: await regeocode.get_formattedAddress(),
+                  latLng: LatLng(
+                    await location.coordinate.then((it) => it.latitude) ?? 0,
+                    await location.coordinate.then((it) => it.longitude) ?? 0,
+                  ),
+                  altitude: await location.altitude,
+                  bearing: await location.course,
+                  country: await regeocode.get_country(),
+                  province: await regeocode.get_province(),
+                  city: await regeocode.get_city(),
+                  cityCode: await regeocode.get_citycode(),
+                  adCode: await regeocode.get_adcode(),
+                  district: await regeocode.get_district(),
+                  poiName: await regeocode.get_POIName(),
+                  street: await regeocode.get_street(),
+                  streetNumber: await regeocode.get_number(),
+                  aoiName: await regeocode.get_AOIName(),
+                  accuracy: await location.horizontalAccuracy,
+                  speed: await location.speed,
                 ),
-                altitude: await location.altitude,
-                bearing: await location.course,
-                country: await regeocode?.get_country(),
-                province: await regeocode?.get_province(),
-                city: await regeocode?.get_city(),
-                cityCode: await regeocode?.get_citycode(),
-                adCode: await regeocode?.get_adcode(),
-                district: await regeocode?.get_district(),
-                poiName: await regeocode?.get_POIName(),
-                street: await regeocode?.get_street(),
-                streetNumber: await regeocode?.get_number(),
-                aoiName: await regeocode?.get_AOIName(),
-                accuracy: await location.horizontalAccuracy,
-                speed: await location.speed,
-              ));
+              );
             }
           },
         );
@@ -175,63 +182,68 @@ mixin _Community on _Holder {
     _locationController ??= StreamController<Location>();
 
     if (Platform.isAndroid) {
-      assert(_androidClient != null,
-          '请先在main方法中调用AmapLocation.instance.init()进行初始化!');
+      assert(
+        _androidClient != null,
+        '请先在main方法中调用AmapLocation.instance.init()进行初始化!',
+      );
       if (_androidLocationDelegate == null) {
         _androidLocationDelegate = _AndroidLocationDelegate();
         await _androidClient!.setLocationListener(_androidLocationDelegate);
       }
       _androidLocationDelegate!._onLocationChanged = (location) async {
-        _locationController!.add(Location(
-          address: await location.getAddress(),
-          latLng: LatLng(
-            await location.getLatitude(),
-            await location.getLongitude(),
+        _locationController!.add(
+          Location(
+            address: await location.getAddress(),
+            latLng: LatLng(
+              await location.getLatitude(),
+              await location.getLongitude(),
+            ),
+            altitude: await location.getAltitude(),
+            bearing: await location.getBearing(),
+            country: await location.getCountry(),
+            province: await location.getProvince(),
+            city: await location.getCity(),
+            cityCode: await location.getCityCode(),
+            adCode: await location.getAdCode(),
+            district: await location.getDistrict(),
+            poiName: await location.getPoiName(),
+            street: await location.getStreet(),
+            streetNumber: await location.getStreetNum(),
+            aoiName: await location.getAoiName(),
+            accuracy: await location.getAccuracy(),
+            speed: await location.getSpeed(),
           ),
-          altitude: await location.getAltitude(),
-          bearing: await location.getBearing(),
-          country: await location.getCountry(),
-          province: await location.getProvince(),
-          city: await location.getCity(),
-          cityCode: await location.getCityCode(),
-          adCode: await location.getAdCode(),
-          district: await location.getDistrict(),
-          poiName: await location.getPoiName(),
-          street: await location.getStreet(),
-          streetNumber: await location.getStreetNum(),
-          aoiName: await location.getAoiName(),
-          accuracy: await location.getAccuracy(),
-          speed: await location.getSpeed(),
-        ));
+        );
       };
 
-      final options =
-          await com_amap_api_location_AMapLocationClientOption.create__();
-      await options.setOnceLocation(false);
-      if (mode != null) {
-        switch (mode) {
-          case LocationAccuracy.High:
-            await options.setLocationMode(
-                com_amap_api_location_AMapLocationClientOption_AMapLocationMode
-                    .Hight_Accuracy);
-            break;
-          case LocationAccuracy.Low:
-            await options.setLocationMode(
-                com_amap_api_location_AMapLocationClientOption_AMapLocationMode
-                    .Battery_Saving);
-            break;
-          case LocationAccuracy.DeviceSensor:
-            await options.setLocationMode(
-                com_amap_api_location_AMapLocationClientOption_AMapLocationMode
-                    .Device_Sensors);
-            break;
-        }
+      final options = await com_amap_api_location_AMapLocationClientOption
+          .create__();
+      await options?.setOnceLocation(false);
+      switch (mode) {
+        case LocationAccuracy.High:
+          await options?.setLocationMode(
+            com_amap_api_location_AMapLocationClientOption_AMapLocationMode
+                .Hight_Accuracy,
+          );
+          break;
+        case LocationAccuracy.Low:
+          await options?.setLocationMode(
+            com_amap_api_location_AMapLocationClientOption_AMapLocationMode
+                .Battery_Saving,
+          );
+          break;
+        case LocationAccuracy.DeviceSensor:
+          await options?.setLocationMode(
+            com_amap_api_location_AMapLocationClientOption_AMapLocationMode
+                .Device_Sensors,
+          );
+          break;
       }
-      if (needAddress != null) await options.setNeedAddress(needAddress);
-      if (timeout != null) await options.setHttpTimeOut(timeout.inSeconds);
-      if (interval != null) await options.setInterval(interval);
+      if (needAddress != null) await options?.setNeedAddress(needAddress);
+      if (timeout != null) await options?.setHttpTimeOut(timeout.inSeconds);
+      if (interval != null) await options?.setInterval(interval);
 
-      await options.setSensorEnable(true);
+      await options?.setSensorEnable(true);
 
       await _androidClient!.setLocationOption(options);
 
@@ -240,17 +252,17 @@ mixin _Community on _Holder {
       yield* _locationController!.stream;
     } else if (Platform.isIOS) {
       assert(
-          _iosClient != null, '请先在main方法中调用AmapLocation.instance.init()进行初始化!');
-      if (mode != null) {
-        switch (mode) {
-          case LocationAccuracy.High:
-            await _iosClient!.set_desiredAccuracy(10);
-            break;
-          case LocationAccuracy.Low:
-          case LocationAccuracy.DeviceSensor:
-            await _iosClient!.set_desiredAccuracy(100);
-            break;
-        }
+        _iosClient != null,
+        '请先在main方法中调用AmapLocation.instance.init()进行初始化!',
+      );
+      switch (mode) {
+        case LocationAccuracy.High:
+          await _iosClient!.set_desiredAccuracy(10);
+          break;
+        case LocationAccuracy.Low:
+        case LocationAccuracy.DeviceSensor:
+          await _iosClient!.set_desiredAccuracy(100);
+          break;
       }
       if (timeout != null) {
         await _iosClient!.set_locationTimeout(timeout.inSeconds);
@@ -264,27 +276,29 @@ mixin _Community on _Holder {
         await _iosClient!.set_delegate(_iosLocationDelegate);
       }
       _iosLocationDelegate!._onLocationChanged = (location, regeocode) async {
-        _locationController!.add(Location(
-          address: await regeocode?.get_formattedAddress(),
-          latLng: LatLng(
-            await location.coordinate.then((it) => it.latitude),
-            await location.coordinate.then((it) => it.longitude),
+        _locationController!.add(
+          Location(
+            address: await regeocode?.get_formattedAddress(),
+            latLng: LatLng(
+              await location.coordinate.then((it) => it.latitude) ?? 0,
+              await location.coordinate.then((it) => it.longitude) ?? 0,
+            ),
+            altitude: await location.altitude,
+            bearing: await location.course,
+            country: await regeocode?.get_country(),
+            province: await regeocode?.get_province(),
+            city: await regeocode?.get_city(),
+            cityCode: await regeocode?.get_citycode(),
+            adCode: await regeocode?.get_adcode(),
+            district: await regeocode?.get_district(),
+            poiName: await regeocode?.get_POIName(),
+            street: await regeocode?.get_street(),
+            streetNumber: await regeocode?.get_number(),
+            aoiName: await regeocode?.get_AOIName(),
+            accuracy: await location.horizontalAccuracy,
+            speed: await location.speed,
           ),
-          altitude: await location.altitude,
-          bearing: await location.course,
-          country: await regeocode?.get_country(),
-          province: await regeocode?.get_province(),
-          city: await regeocode?.get_city(),
-          cityCode: await regeocode?.get_citycode(),
-          adCode: await regeocode?.get_adcode(),
-          district: await regeocode?.get_district(),
-          poiName: await regeocode?.get_POIName(),
-          street: await regeocode?.get_street(),
-          streetNumber: await regeocode?.get_number(),
-          aoiName: await regeocode?.get_AOIName(),
-          accuracy: await location.horizontalAccuracy,
-          speed: await location.speed,
-        ));
+        );
       };
 
       await _iosClient!.set_locatingWithReGeocode(true);
@@ -396,7 +410,8 @@ mixin _Community on _Holder {
         'me.yohom/amap_location_fluttify',
         kAmapLocationFluttifyMethodCodec,
       ).invokeMethod(
-          'com.amap.api.fence.GeoFenceClient::unregisterBroadcastReceiver');
+        'com.amap.api.fence.GeoFenceClient::unregisterBroadcastReceiver',
+      );
     }
 
     if (_androidClient != null) {
@@ -428,7 +443,8 @@ mixin _Pro on _Holder {
           final customId = args['customId'] as String;
           final fenceId = args['fenceId'] as String;
           debugPrint(
-              '收到围栏消息: status: $status, customId: $customId, fenceId:$fenceId');
+            '收到围栏消息: status: $status, customId: $customId, fenceId:$fenceId',
+          );
           final fence = com_amap_api_fence_GeoFence()
             ..refId = (args['fence'] as Ref).refId;
           _geoFenceEventController?.add(
@@ -462,7 +478,9 @@ mixin _Pro on _Holder {
           .create__android_content_Context(context);
 
       final point = await com_amap_api_location_DPoint.create__double__double(
-          center.latitude, center.longitude);
+        center.latitude,
+        center.longitude,
+      );
 
       await _androidGeoFenceClient!.addCircleGeoFence(
         activeActions.getActiveAction(),
@@ -488,15 +506,20 @@ mixin _Pro on _Holder {
           },
       );
 
-      await _iosGeoFenceClient!
-          .set_activeActionX(activeActions.getActiveAction());
+      await _iosGeoFenceClient!.set_activeActionX(
+        activeActions.getActiveAction(),
+      );
 
-      final centerPoint = await AMapLocationPoint.create__();
-      await centerPoint?.set_latitude(center.latitude);
-      await centerPoint?.set_longitude(center.longitude);
+      final centerPoint = await CLLocationCoordinate2D.create(
+        center.latitude,
+        center.longitude,
+      );
       await _iosGeoFenceClient!
           .addCircleRegionForMonitoringWithCenter_radius_customID(
-              centerPoint!, radius, customId);
+            centerPoint,
+            radius,
+            customId,
+          );
     }
 
     yield* _geoFenceEventController!.stream;
@@ -547,11 +570,18 @@ mixin _Pro on _Holder {
           },
       );
 
-      await _iosGeoFenceClient!
-          .set_activeActionX(activeActions.getActiveAction());
+      await _iosGeoFenceClient!.set_activeActionX(
+        activeActions.getActiveAction(),
+      );
 
-      await _iosGeoFenceClient!.addPOIRegionForMonitoringWithKeyword_poiType_city_customID(
-          keyword, poiType ?? '', city ?? '', customId);
+      await _iosGeoFenceClient!
+          .addKeywordPOIRegionForMonitoringWithKeyword_POIType_city_size_customID(
+            keyword,
+            poiType ?? '',
+            city ?? '',
+            aroundRadius ?? 1000,
+            customId,
+          );
     }
 
     yield* _geoFenceEventController!.stream;
@@ -576,8 +606,11 @@ mixin _Pro on _Holder {
       final polygon = <com_amap_api_location_DPoint>[];
       for (final point in pointList) {
         polygon.add(
-            await com_amap_api_location_DPoint.create__double__double(
-                point.latitude, point.longitude));
+          (await com_amap_api_location_DPoint.create__double__double(
+            point.latitude,
+            point.longitude,
+          ))!,
+        );
       }
 
       await _androidGeoFenceClient!.addPolygonGeoFence(
@@ -603,19 +636,24 @@ mixin _Pro on _Holder {
           },
       );
 
-      await _iosGeoFenceClient!
-          .set_activeActionX(activeActions.getActiveAction());
+      await _iosGeoFenceClient!.set_activeActionX(
+        activeActions.getActiveAction(),
+      );
 
-      final coordinates = <AMapLocationPoint>[];
+      final coordinates = <CLLocationCoordinate2D>[];
       for (final point in pointList) {
-        final locationPoint = await AMapLocationPoint.create__();
-        await locationPoint?.set_latitude(point.latitude);
-        await locationPoint?.set_longitude(point.longitude);
-        if (locationPoint != null) coordinates.add(locationPoint);
+        final locationPoint = await CLLocationCoordinate2D.create(
+          point.latitude,
+          point.longitude,
+        );
+        coordinates.add(locationPoint);
       }
       await _iosGeoFenceClient!
-          .addPolygonRegionForMonitoringWithCoordinates_customID(
-              coordinates, customId);
+          .addPolygonRegionForMonitoringWithCoordinates_count_customID(
+            coordinates,
+            coordinates.length,
+            customId,
+          );
     }
 
     yield* _geoFenceEventController!.stream;
@@ -624,7 +662,11 @@ mixin _Pro on _Holder {
   Stream<GeoFenceEvent> addDistrictGeoFence({
     required String keyword,
     String customId = '',
-    required List<GeoFenceActiveAction> activeActions,
+    List<GeoFenceActiveAction> activeActions = const [
+      GeoFenceActiveAction.In,
+      GeoFenceActiveAction.Out,
+      GeoFenceActiveAction.Stayed,
+    ],
   }) async* {
     _geoFenceEventController ??= StreamController<GeoFenceEvent>.broadcast();
 
@@ -656,19 +698,22 @@ mixin _Pro on _Holder {
           },
       );
 
-      await _iosGeoFenceClient!
-          .set_activeActionX(activeActions.getActiveAction());
+      await _iosGeoFenceClient!.set_activeActionX(
+        activeActions.getActiveAction(),
+      );
 
       await _iosGeoFenceClient!
           .addDistrictRegionForMonitoringWithDistrictName_customID(
-              keyword, customId);
+            keyword,
+            customId,
+          );
     }
 
     yield* _geoFenceEventController!.stream;
   }
 }
 
-mixin _Holder on _Pro {
+mixin _Holder {
   com_amap_api_location_AMapLocationClient? _androidClient;
   AMapLocationManager? _iosClient;
 

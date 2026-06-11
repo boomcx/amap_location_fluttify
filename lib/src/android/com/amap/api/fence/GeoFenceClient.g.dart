@@ -25,11 +25,11 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   //endregion
 
   //region creators
-  static Future<com_amap_api_fence_GeoFenceClient> create__android_content_Context(android_content_Context var1) async {
+  static Future<com_amap_api_fence_GeoFenceClient?> create__android_content_Context(android_content_Context var1) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_fence_GeoFenceClient__android_content_Context', {"var1": var1});
   }
   
-  static Future<List<com_amap_api_fence_GeoFenceClient>> create_batch__android_content_Context(List<android_content_Context> var1) async {
+  static Future<List<com_amap_api_fence_GeoFenceClient>?> create_batch__android_content_Context(List<android_content_Context> var1) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -111,7 +111,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
                 break;
             }
           } catch (e) {
-            debugPrint(e);
+            debugPrint('fluttify-dart-callback-error: $e');
             rethrow;
           }
         });
@@ -239,7 +239,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   }
   
   
-  Future<List<com_amap_api_fence_GeoFence>> getAllGeoFence() async {
+  Future<List<com_amap_api_fence_GeoFence>?> getAllGeoFence() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.fence.GeoFenceClient@$refId::getAllGeoFence([])');
@@ -459,7 +459,7 @@ extension com_amap_api_fence_GeoFenceClient_Batch on List<com_amap_api_fence_Geo
   }
   
   
-  Future<List<List<com_amap_api_fence_GeoFence>>> getAllGeoFence_batch() async {
+  Future<List<List<com_amap_api_fence_GeoFence>?>> getAllGeoFence_batch() async {
     if (false) {
       return Future.error('all args must have same length!');
     }

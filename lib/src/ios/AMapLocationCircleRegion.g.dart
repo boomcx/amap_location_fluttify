@@ -23,11 +23,11 @@ class AMapLocationCircleRegion extends AMapLocationRegion with NSCopying {
   //endregion
 
   //region creators
-  static Future<AMapLocationCircleRegion> create__({ bool init = true /* ios only */ }) async {
+  static Future<AMapLocationCircleRegion?> create__({ bool init = true /* ios only */ }) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationCircleRegion', {'init': init});
   }
   
-  static Future<List<AMapLocationCircleRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapLocationCircleRegion>?> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

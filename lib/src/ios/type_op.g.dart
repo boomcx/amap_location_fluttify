@@ -147,6 +147,7 @@ Future<bool> AmapLocationFluttifyIOSIs<T>(dynamic __this__) async {
     final result = await kAmapLocationFluttifyChannel.invokeMethod('RefClass::isKindOfNSOperation', {'__this__': __this__});
     return result;
   }
+  return false;
 }
 
 // type cast

@@ -26,9 +26,9 @@ extension AMapGeoFenceActiveActionFromX on int {
   AMapGeoFenceActiveAction toAMapGeoFenceActiveAction() {
     switch (this) {
       case 0: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionNone;
-      case 1<<0: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionInside;
-      case 1<<1: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionOutside;
-      case 1<<2: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionStayed;
+      case == 1<<0: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionInside;
+      case == 1<<1: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionOutside;
+      case == 1<<2: return AMapGeoFenceActiveAction.AMapGeoFenceActiveActionStayed;
       default: return AMapGeoFenceActiveAction.values[this + 0];
     }
   }

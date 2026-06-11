@@ -1,8 +1,6 @@
-import 'package:amap_core_fluttify/amap_core_fluttify.dart';
 import 'package:amap_location_fluttify/amap_location_fluttify.dart';
 import 'package:amap_location_fluttify/src/android/android.export.g.dart';
 import 'package:amap_location_fluttify/src/ios/ios.export.g.dart';
-import 'package:flutter/cupertino.dart';
 
 class Location {
   Location({

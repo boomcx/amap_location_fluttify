@@ -39,7 +39,7 @@ extension com_amap_api_fence_GeoFenceClient_X
     on com_amap_api_fence_GeoFenceClient {
   Future<void> addCircleGeoFence(
     int activeAction,
-    com_amap_api_location_DPoint center,
+    com_amap_api_location_DPoint? center,
     double radius,
     String customId,
   ) async {

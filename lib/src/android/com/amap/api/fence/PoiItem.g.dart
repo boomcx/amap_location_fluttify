@@ -23,11 +23,11 @@ class com_amap_api_fence_PoiItem extends java_lang_Object with android_os_Parcel
   //endregion
 
   //region creators
-  static Future<com_amap_api_fence_PoiItem> create__() async {
+  static Future<com_amap_api_fence_PoiItem?> create__() async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_fence_PoiItem__', );
   }
   
-  static Future<List<com_amap_api_fence_PoiItem>> create_batch__(int length) async {
+  static Future<List<com_amap_api_fence_PoiItem>?> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

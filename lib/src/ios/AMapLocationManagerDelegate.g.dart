@@ -12,55 +12,83 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-
-
 mixin AMapLocationManagerDelegate on NSObject {
-  
-
-  
-
   @override
   final String tag__ = 'amap_location_fluttify';
 
-  
+  @mustCallSuper
+  Future<void> amapLocationManager_doRequireLocationAuth(
+    AMapLocationManager manager,
+    CLLocationManager locationManager,
+  ) async {}
 
-  
+  @mustCallSuper
+  Future<void> amapLocationManager_didFailWithError(
+    AMapLocationManager manager,
+    NSError error,
+  ) async {}
 
   @mustCallSuper
-  Future<void> amapLocationManager_doRequireLocationAuth(AMapLocationManager manager, CLLocationManager locationManager) {}
-  
+  Future<void> amapLocationManager_didUpdateLocation(
+    AMapLocationManager manager,
+    CLLocation location,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didFailWithError(AMapLocationManager manager, NSError error) {}
-  
+  Future<void> amapLocationManager_didUpdateLocation_reGeocode(
+    AMapLocationManager manager,
+    CLLocation location,
+    AMapLocationReGeocode? reGeocode,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didUpdateLocation(AMapLocationManager manager, CLLocation location) {}
-  
+  Future<void> amapLocationManager_didChangeAuthorizationStatus(
+    AMapLocationManager manager,
+    CLAuthorizationStatus status,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didUpdateLocation_reGeocode(AMapLocationManager manager, CLLocation location, AMapLocationReGeocode reGeocode) {}
-  
+  Future<bool> amapLocationManagerShouldDisplayHeadingCalibration(
+    AMapLocationManager manager,
+  ) async {
+    return false;
+  }
+
   @mustCallSuper
-  Future<void> amapLocationManager_didChangeAuthorizationStatus(AMapLocationManager manager, CLAuthorizationStatus status) {}
-  
+  Future<void> amapLocationManager_didUpdateHeading(
+    AMapLocationManager manager,
+    CLHeading newHeading,
+  ) async {}
+
   @mustCallSuper
-  Future<bool> amapLocationManagerShouldDisplayHeadingCalibration(AMapLocationManager manager) {}
-  
+  Future<void> amapLocationManager_didStartMonitoringForRegion(
+    AMapLocationManager manager,
+    AMapLocationRegion region,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didUpdateHeading(AMapLocationManager manager, CLHeading newHeading) {}
-  
+  Future<void> amapLocationManager_didEnterRegion(
+    AMapLocationManager manager,
+    AMapLocationRegion region,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didStartMonitoringForRegion(AMapLocationManager manager, AMapLocationRegion region) {}
-  
+  Future<void> amapLocationManager_didExitRegion(
+    AMapLocationManager manager,
+    AMapLocationRegion region,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didEnterRegion(AMapLocationManager manager, AMapLocationRegion region) {}
-  
+  Future<void> amapLocationManager_didDetermineState_forRegion(
+    AMapLocationManager manager,
+    AMapLocationRegionState state,
+    AMapLocationRegion region,
+  ) async {}
+
   @mustCallSuper
-  Future<void> amapLocationManager_didExitRegion(AMapLocationManager manager, AMapLocationRegion region) {}
-  
-  @mustCallSuper
-  Future<void> amapLocationManager_didDetermineState_forRegion(AMapLocationManager manager, AMapLocationRegionState state, AMapLocationRegion region) {}
-  
-  @mustCallSuper
-  Future<void> amapLocationManager_monitoringDidFailForRegion_withError(AMapLocationManager manager, AMapLocationRegion region, NSError error) {}
-  
+  Future<void> amapLocationManager_monitoringDidFailForRegion_withError(
+    AMapLocationManager manager,
+    AMapLocationRegion region,
+    NSError error,
+  ) async {}
 }
-

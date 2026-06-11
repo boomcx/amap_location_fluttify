@@ -23,11 +23,11 @@ class com_amap_api_fence_DistrictItem extends java_lang_Object with android_os_P
   //endregion
 
   //region creators
-  static Future<com_amap_api_fence_DistrictItem> create__() async {
+  static Future<com_amap_api_fence_DistrictItem?> create__() async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_fence_DistrictItem__', );
   }
   
-  static Future<List<com_amap_api_fence_DistrictItem>> create_batch__(int length) async {
+  static Future<List<com_amap_api_fence_DistrictItem>?> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -114,7 +114,7 @@ class com_amap_api_fence_DistrictItem extends java_lang_Object with android_os_P
   }
   
   
-  Future<List<com_amap_api_location_DPoint>> getPolyline() async {
+  Future<List<com_amap_api_location_DPoint>?> getPolyline() async {
     // print log
     if (fluttifyLogEnabled) {
       debugPrint('fluttify-dart: com.amap.api.fence.DistrictItem@$refId::getPolyline([])');
@@ -252,7 +252,7 @@ extension com_amap_api_fence_DistrictItem_Batch on List<com_amap_api_fence_Distr
   }
   
   
-  Future<List<List<com_amap_api_location_DPoint>>> getPolyline_batch() async {
+  Future<List<List<com_amap_api_location_DPoint>?>> getPolyline_batch() async {
     if (false) {
       return Future.error('all args must have same length!');
     }

@@ -23,11 +23,11 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   //endregion
 
   //region creators
-  static Future<com_amap_api_location_AMapLocationClientOption> create__() async {
+  static Future<com_amap_api_location_AMapLocationClientOption?> create__() async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClientOption__', );
   }
   
-  static Future<List<com_amap_api_location_AMapLocationClientOption>> create_batch__(int length) async {
+  static Future<List<com_amap_api_location_AMapLocationClientOption>?> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

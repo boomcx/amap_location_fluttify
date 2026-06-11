@@ -33,10 +33,14 @@ class _AndroidLocationDelegate extends java_lang_Object
 
   @override
   Future<void> onGeoFenceCreateFinished(
-      List<com_amap_api_fence_GeoFence> var1, int var2, String var3) async {
+    List<com_amap_api_fence_GeoFence> var1,
+    int var2,
+    String var3,
+  ) async {
     super.onGeoFenceCreateFinished(var1, var2, var3);
     debugPrint(
-        '围栏创建结果: $var2, ${com_amap_api_fence_GeoFence.ADDGEOFENCE_SUCCESS}');
+      '围栏创建结果: $var2, ${com_amap_api_fence_GeoFence.ADDGEOFENCE_SUCCESS}',
+    );
   }
 }
 
@@ -75,13 +79,18 @@ class _IOSLocationDelegate extends NSObject
 
   @override
   Future<void>
-      amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(
-          AMapGeoFenceManager manager,
-          AMapGeoFenceRegion region,
-          String customID,
-          NSError? error) async {
+  amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(
+    AMapGeoFenceManager manager,
+    AMapGeoFenceRegion region,
+    String customID,
+    NSError? error,
+  ) async {
     super.amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(
-        manager, region, customID, error);
+      manager,
+      region,
+      customID,
+      error,
+    );
     if (_onGeoFenceStatusChanged != null) {
       _onGeoFenceStatusChanged!(region, customID, error);
     }

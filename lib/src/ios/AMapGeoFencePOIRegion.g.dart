@@ -23,11 +23,11 @@ class AMapGeoFencePOIRegion extends AMapGeoFenceCircleRegion with NSCopying {
   //endregion
 
   //region creators
-  static Future<AMapGeoFencePOIRegion> create__({ bool init = true /* ios only */ }) async {
+  static Future<AMapGeoFencePOIRegion?> create__({ bool init = true /* ios only */ }) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFencePOIRegion', {'init': init});
   }
   
-  static Future<List<AMapGeoFencePOIRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapGeoFencePOIRegion>?> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

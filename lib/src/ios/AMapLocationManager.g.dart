@@ -23,11 +23,11 @@ class AMapLocationManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<AMapLocationManager> create__({ bool init = true /* ios only */ }) async {
+  static Future<AMapLocationManager?> create__({ bool init = true /* ios only */ }) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationManager', {'init': init});
   }
   
-  static Future<List<AMapLocationManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapLocationManager>?> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -85,7 +85,7 @@ class AMapLocationManager extends NSObject  {
   //endregion
 
   //region setters
-  Future<void> set_delegate(AMapLocationManagerDelegate delegate) async {
+  Future<void> set_delegate(AMapLocationManagerDelegate? delegate) async {
     await kAmapLocationFluttifyChannel.invokeMethod('AMapLocationManager::set_delegate', <String, dynamic>{'__this__': this, });
   
     MethodChannel('AMapLocationManagerDelegate::Callback', kAmapLocationFluttifyMethodCodec)
@@ -205,7 +205,7 @@ class AMapLocationManager extends NSObject  {
               break;
           }
         } catch (e) {
-          debugPrint(e);
+          debugPrint(e.toString());
           rethrow;
         }
       });
@@ -366,7 +366,7 @@ class AMapLocationManager extends NSObject  {
                 break;
             }
           } catch (e) {
-            debugPrint(e);
+            debugPrint(e.toString());
             rethrow;
           }
         });

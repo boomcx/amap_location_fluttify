@@ -23,11 +23,11 @@ class AMapLocationDistrictItem extends NSObject with NSCoding, NSCopying {
   //endregion
 
   //region creators
-  static Future<AMapLocationDistrictItem> create__({ bool init = true /* ios only */ }) async {
+  static Future<AMapLocationDistrictItem?> create__({ bool init = true /* ios only */ }) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationDistrictItem', {'init': init});
   }
   
-  static Future<List<AMapLocationDistrictItem>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapLocationDistrictItem>?> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

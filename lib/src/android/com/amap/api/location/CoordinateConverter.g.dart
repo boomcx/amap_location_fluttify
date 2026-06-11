@@ -23,11 +23,11 @@ class com_amap_api_location_CoordinateConverter extends java_lang_Object  {
   //endregion
 
   //region creators
-  static Future<com_amap_api_location_CoordinateConverter> create__android_content_Context(android_content_Context var1) async {
+  static Future<com_amap_api_location_CoordinateConverter?> create__android_content_Context(android_content_Context var1) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_CoordinateConverter__android_content_Context', {"var1": var1});
   }
   
-  static Future<List<com_amap_api_location_CoordinateConverter>> create_batch__android_content_Context(List<android_content_Context> var1) async {
+  static Future<List<com_amap_api_location_CoordinateConverter>?> create_batch__android_content_Context(List<android_content_Context> var1) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

@@ -23,11 +23,11 @@ class com_amap_api_location_UmidtokenInfo extends java_lang_Object  {
   //endregion
 
   //region creators
-  static Future<com_amap_api_location_UmidtokenInfo> create__() async {
+  static Future<com_amap_api_location_UmidtokenInfo?> create__() async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_UmidtokenInfo__', );
   }
   
-  static Future<List<com_amap_api_location_UmidtokenInfo>> create_batch__(int length) async {
+  static Future<List<com_amap_api_location_UmidtokenInfo>?> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }

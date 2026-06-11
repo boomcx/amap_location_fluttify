@@ -12,22 +12,14 @@ import 'package:flutter/services.dart';
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 import 'package:core_location_fluttify/core_location_fluttify.dart';
 
-
-
 mixin com_amap_api_fence_GeoFenceListener on java_lang_Object {
-  
-
-  
-
   @override
   final String tag__ = 'amap_location_fluttify';
 
-  
-
-  
-
   @mustCallSuper
-  Future<void> onGeoFenceCreateFinished(List<com_amap_api_fence_GeoFence> var1, int var2, String var3) {}
-  
+  Future<void> onGeoFenceCreateFinished(
+    List<com_amap_api_fence_GeoFence> var1,
+    int var2,
+    String var3,
+  ) async {}
 }
-
