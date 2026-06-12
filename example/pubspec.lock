@@ -9,7 +9,7 @@ packages:
     source: path
     version: "0.17.0"
   amap_location_fluttify:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: ".."
       relative: true

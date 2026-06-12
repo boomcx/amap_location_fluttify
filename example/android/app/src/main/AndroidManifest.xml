@@ -1,12 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 定位必要权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:label="amap_location_fluttify_example"
         android:icon="@mipmap/ic_launcher">
-        <!-- 定位必要权限 -->
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
         <meta-data android:name="com.amap.api.v2.apikey" android:value="656993a6a3a51bce57186063e6761c1a"/>
         <activity
             android:name=".MainActivity"

@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
                 if (await requestPermission()) {
                   AmapLocation.instance
                       .addCircleGeoFence(
-                        center: LatLng(29, 119),
+                        center: LatLng(29.6143, 106.5016),
                         radius: 1000,
                         customId: 'testid',
                       )
@@ -129,7 +129,7 @@ class _MyAppState extends State<MyApp> {
                       .listen((event) {
                         setState(() {
                           _fenceStatus =
-                              '状态: ${event.status}, 围栏id: ${event.fenceId}, 自定义id: ${event.customId}';
+                              '状态: ${event.status}, ${event.genFence.androidModel?.getDistrictItemList()}, 围栏id: ${event.fenceId}, 自定义id: ${event.customId}';
                         });
                       });
                 }
