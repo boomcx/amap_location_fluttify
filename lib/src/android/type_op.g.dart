@@ -261,119 +261,203 @@ Future<bool?> AmapLocationFluttifyAndroidIs<T>(dynamic __this__) async {
 
 // type cast
 @optionalTypeArgs
-T? AmapLocationFluttifyAndroidAs<T>(dynamic __this__) {
-  final typeName = T.toString();
-
-  if (__this__ == null) {
-    return null;
-  } else if (RegExp(
-    r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$',
-  ).hasMatch(typeName)) {
-    return __this__ as T;
-  } else if (T == com_amap_api_location_AMapLocationClient) {
-    return (com_amap_api_location_AMapLocationClient()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_APSService) {
-    return (com_amap_api_location_APSService()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_DPoint) {
-    return (com_amap_api_location_DPoint()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_CoordinateConverter) {
-    return (com_amap_api_location_CoordinateConverter()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_CoordUtil) {
-    return (com_amap_api_location_CoordUtil()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_UmidtokenInfo) {
-    return (com_amap_api_location_UmidtokenInfo()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_AMapLocation) {
-    return (com_amap_api_location_AMapLocation()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_AMapLocationClientOption) {
-    return (com_amap_api_location_AMapLocationClientOption()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_location_AMapLocationQualityReport) {
-    return (com_amap_api_location_AMapLocationQualityReport()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_fence_DistrictItem) {
-    return (com_amap_api_fence_DistrictItem()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_fence_GeoFenceClient) {
-    return (com_amap_api_fence_GeoFenceClient()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_fence_GeoFence) {
-    return (com_amap_api_fence_GeoFence()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == com_amap_api_fence_PoiItem) {
-    return (com_amap_api_fence_PoiItem()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_content_Context) {
-    return (android_content_Context()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_content_Intent) {
-    return (android_content_Intent()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_content_ContentProvider) {
-    return (android_content_ContentProvider()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == android_app_Application) {
-    return (android_app_Application()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_app_Notification) {
-    return (android_app_Notification()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_app_Activity) {
-    return (android_app_Activity()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_app_PendingIntent) {
-    return (android_app_PendingIntent()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_os_Bundle) {
-    return (android_os_Bundle()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_os_Binder) {
-    return (android_os_Binder()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_view_View) {
-    return (android_view_View()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_view_SurfaceView) {
-    return (android_view_SurfaceView()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_view_ViewGroup) {
-    return (android_view_ViewGroup()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_graphics_Point) {
-    return (android_graphics_Point()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_graphics_PointF) {
-    return (android_graphics_PointF()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_graphics_Bitmap) {
-    return (android_graphics_Bitmap()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_widget_ImageView) {
-    return (android_widget_ImageView()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == java_io_File) {
-    return (java_io_File()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_location_Location) {
-    return (android_location_Location()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_view_MotionEvent) {
-    return (android_view_MotionEvent()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_graphics_drawable_Drawable) {
-    return (android_graphics_drawable_Drawable()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == android_widget_FrameLayout) {
-    return (android_widget_FrameLayout()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_widget_TextView) {
-    return (android_widget_TextView()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == android_widget_LinearLayout) {
-    return (android_widget_LinearLayout()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == android_widget_RelativeLayout) {
-    return (android_widget_RelativeLayout()..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == android_os_Parcelable) {
-    return (android_os_Parcelable.subInstance()
-          ..refId = (__this__ as Ref).refId)
-        as T;
-  } else if (T == android_util_Pair) {
-    return (android_util_Pair()..refId = (__this__ as Ref).refId) as T;
+dynamic AmapLocationFluttifyAndroidAs(dynamic __this__, String typeName) {
+  // 占位用
+  if (false) {
+  } else if (typeName == 'com.amap.api.location.AMapLocationClient') {
+    return com_amap_api_location_AMapLocationClient()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.APSService') {
+    return com_amap_api_location_APSService()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.DPoint') {
+    return com_amap_api_location_DPoint()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.CoordinateConverter') {
+    return com_amap_api_location_CoordinateConverter()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.CoordUtil') {
+    return com_amap_api_location_CoordUtil()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.UmidtokenInfo') {
+    return com_amap_api_location_UmidtokenInfo()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.AMapLocation') {
+    return com_amap_api_location_AMapLocation()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.AMapLocationClientOption') {
+    return com_amap_api_location_AMapLocationClientOption()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.location.AMapLocationQualityReport') {
+    return com_amap_api_location_AMapLocationQualityReport()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.fence.DistrictItem') {
+    return com_amap_api_fence_DistrictItem()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.fence.GeoFenceClient') {
+    return com_amap_api_fence_GeoFenceClient()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.fence.GeoFence') {
+    return com_amap_api_fence_GeoFence()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'com.amap.api.fence.PoiItem') {
+    return com_amap_api_fence_PoiItem()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.content.Context') {
+    return android_content_Context()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.content.Intent') {
+    return android_content_Intent()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.content.ContentProvider') {
+    return android_content_ContentProvider()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.app.Application') {
+    return android_app_Application()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.app.Notification') {
+    return android_app_Notification()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.app.Activity') {
+    return android_app_Activity()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.app.PendingIntent') {
+    return android_app_PendingIntent()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.os.Bundle') {
+    return android_os_Bundle()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.os.Binder') {
+    return android_os_Binder()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.view.View') {
+    return android_view_View()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.view.SurfaceView') {
+    return android_view_SurfaceView()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.view.ViewGroup') {
+    return android_view_ViewGroup()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.graphics.Point') {
+    return android_graphics_Point()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.graphics.PointF') {
+    return android_graphics_PointF()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.graphics.Bitmap') {
+    return android_graphics_Bitmap()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.widget.ImageView') {
+    return android_widget_ImageView()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'java.io.File') {
+    return java_io_File()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.location.Location') {
+    return android_location_Location()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.view.MotionEvent') {
+    return android_view_MotionEvent()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.graphics.drawable.Drawable') {
+    return android_graphics_drawable_Drawable()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.widget.FrameLayout') {
+    return android_widget_FrameLayout()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.widget.TextView') {
+    return android_widget_TextView()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.widget.LinearLayout') {
+    return android_widget_LinearLayout()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.widget.RelativeLayout') {
+    return android_widget_RelativeLayout()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.os.Parcelable') {
+    return android_os_Parcelable.subInstance()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'android.util.Pair') {
+    return android_util_Pair()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
   }
-  return null;
 }

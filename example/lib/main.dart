@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                   AmapLocation.instance
                       .addCircleGeoFence(
                         center: LatLng(29.6143, 106.5016),
-                        radius: 1000,
+                        radius: 5000,
                         customId: 'testid',
                       )
                       .listen((event) {

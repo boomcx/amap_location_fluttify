@@ -219,79 +219,168 @@ Future<bool> AmapLocationFluttifyIOSIs<T>(dynamic __this__) async {
 
 // type cast
 @optionalTypeArgs
-T? AmapLocationFluttifyIOSAs<T>(dynamic __this__) {
-  final typeName = T.toString();
-
-  if (__this__ == null) {
-    return null;
-  } else if (RegExp(
-    r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$',
-  ).hasMatch(typeName)) {
-    return __this__ as T;
-  } else if (T == AMapGeoFenceManager) {
-    return (AMapGeoFenceManager()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationRegion) {
-    return (AMapLocationRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationCircleRegion) {
-    return (AMapLocationCircleRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationPolygonRegion) {
-    return (AMapLocationPolygonRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapGeoFenceRegion) {
-    return (AMapGeoFenceRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapGeoFenceCircleRegion) {
-    return (AMapGeoFenceCircleRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapGeoFencePolygonRegion) {
-    return (AMapGeoFencePolygonRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapGeoFencePOIRegion) {
-    return (AMapGeoFencePOIRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapGeoFenceDistrictRegion) {
-    return (AMapGeoFenceDistrictRegion()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationManager) {
-    return (AMapLocationManager()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationReGeocode) {
-    return (AMapLocationReGeocode()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationPoint) {
-    return (AMapLocationPoint()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationPOIItem) {
-    return (AMapLocationPOIItem()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == AMapLocationDistrictItem) {
-    return (AMapLocationDistrictItem()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CLLocation) {
-    return (CLLocation()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CLHeading) {
-    return (CLHeading()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CGRect) {
-    return (CGRect()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CGPoint) {
-    return (CGPoint()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CGSize) {
-    return (CGSize()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == UIEdgeInsets) {
-    return (UIEdgeInsets()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CLLocationCoordinate2D) {
-    return (CLLocationCoordinate2D()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == CLLocationManager) {
-    return (CLLocationManager()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSError) {
-    return (NSError()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSCoding) {
-    return (NSCoding.subInstance()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSCopying) {
-    return (NSCopying.subInstance()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == UIView) {
-    return (UIView()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == UIViewController) {
-    return (UIViewController()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == UIControl) {
-    return (UIControl()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == UIImage) {
-    return (UIImage()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == UIColor) {
-    return (UIColor()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSData) {
-    return (NSData()..refId = (__this__ as Ref).refId) as T;
-  } else if (T == NSOperation) {
-    return (NSOperation()..refId = (__this__ as Ref).refId) as T;
+dynamic AmapLocationFluttifyIOSAs(dynamic __this__, String typeName) {
+  // 占位用
+  if (false) {
+  } else if (typeName == 'AMapGeoFenceManager') {
+    return AMapGeoFenceManager()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationRegion') {
+    return AMapLocationRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationCircleRegion') {
+    return AMapLocationCircleRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationPolygonRegion') {
+    return AMapLocationPolygonRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapGeoFenceRegion') {
+    return AMapGeoFenceRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapGeoFenceCircleRegion') {
+    return AMapGeoFenceCircleRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapGeoFencePolygonRegion') {
+    return AMapGeoFencePolygonRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapGeoFencePOIRegion') {
+    return AMapGeoFencePOIRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapGeoFenceDistrictRegion') {
+    return AMapGeoFenceDistrictRegion()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationManager') {
+    return AMapLocationManager()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationReGeocode') {
+    return AMapLocationReGeocode()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationPoint') {
+    return AMapLocationPoint()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationPOIItem') {
+    return AMapLocationPOIItem()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'AMapLocationDistrictItem') {
+    return AMapLocationDistrictItem()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CLLocation') {
+    return CLLocation()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CLHeading') {
+    return CLHeading()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CGRect') {
+    return CGRect()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CGPoint') {
+    return CGPoint()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CGSize') {
+    return CGSize()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'UIEdgeInsets') {
+    return UIEdgeInsets()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CLLocationCoordinate2D') {
+    return CLLocationCoordinate2D()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'CLLocationManager') {
+    return CLLocationManager()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'NSError') {
+    return NSError()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'NSCoding') {
+    return NSCoding.subInstance()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'NSCopying') {
+    return NSCopying.subInstance()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'UIView') {
+    return UIView()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'UIViewController') {
+    return UIViewController()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'UIControl') {
+    return UIControl()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'UIImage') {
+    return UIImage()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'UIColor') {
+    return UIColor()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'NSData') {
+    return NSData()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
+  } else if (typeName == 'NSOperation') {
+    return NSOperation()
+      ..refId = (__this__ is Ref
+          ? (__this__ as Ref).refId
+          : __this__ as String);
   }
-  return null;
 }
