@@ -4,9 +4,11 @@ packages:
   amap_core_fluttify:
     dependency: "direct main"
     description:
-      path: "../amap_core_fluttify"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "10b03367687dcb4c9c32730d0fb5325cec0cc3a7"
+      url: "https://github.com/boomcx/amap_core_fluttify"
+    source: git
     version: "0.17.0"
   async:
     dependency: transitive
@@ -51,9 +53,11 @@ packages:
   core_location_fluttify:
     dependency: "direct main"
     description:
-      path: "../core_location_fluttify"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: cd900a7cb14abeddc356bca0edc1bf34e7d5bacb
+      url: "https://github.com/boomcx/core_location_fluttify"
+    source: git
     version: "0.7.1"
   fake_async:
     dependency: transitive
@@ -84,9 +88,11 @@ packages:
   foundation_fluttify:
     dependency: "direct main"
     description:
-      path: "../foundation_fluttify"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: e41ea89bdf111b946d1a9ba2021a8bf100dc53aa
+      url: "https://github.com/boomcx/foundation_fluttify"
+    source: git
     version: "0.14.0"
   leak_tracker:
     dependency: transitive
