@@ -5,8 +5,8 @@ homepage: https://github.com/fluttify-project/amap_location_fluttify
 publish_to: none
 
 environment:
-  sdk: '>=3.9.2 <4.0.0'
-  flutter: '>=3.35.0'
+  sdk: '>=3.6.2 <4.0.0'
+  flutter: '>=3.27.4'
 
 dependencies:
   flutter:
