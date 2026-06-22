@@ -1,7 +1,25 @@
-plugins {
-    id "com.android.library" // 替代 apply plugin
-    id "org.jetbrains.kotlin.android" // 声明式插件 + 显式版本
-}
+group 'me.yohom.amap_location_fluttify'
+version '1.0-SNAPSHOT'
+
+// buildscript {
+//     ext.kotlin_version = '2.1.0'
+//     repositories {
+//         maven { url 'https://maven.aliyun.com/repository/google' }
+//         maven { url 'https://maven.aliyun.com/repository/central' }
+//         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+//         google()
+//         mavenCentral()
+//     }
+
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:8.9.1'
+//         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//     }
+// }
+
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'me.yohom.amap_location_fluttify'
@@ -40,11 +58,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
-    implementation "androidx.annotation:annotation:1.7.0"
-    implementation "androidx.appcompat:appcompat:1.6.1"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0"
-    compileOnly project(path: ":foundation_fluttify")
-    compileOnly project(path: ":amap_core_fluttify")
-    api "com.amap.api:location:6.4.5"
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'androidx.annotation:annotation:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.20"
+    compileOnly rootProject.findProject(":foundation_fluttify")
+    compileOnly rootProject.findProject(":amap_core_fluttify")
+    api 'com.amap.api:location:6.4.5'
 }
